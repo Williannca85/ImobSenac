@@ -1,5 +1,4 @@
 import * as React from 'react';
-import { Text, View } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
@@ -20,17 +19,17 @@ const icons = {
 
 export default function App() {
   return (
-    <NavigationContainer >
+    <NavigationContainer  >
       <Tab.Navigator 
-      screenOptions={ ({route}) => ({
-        tabBarIcon: ({ color, size }) => {
-          const { name } = icons[route.name];
-          return <Icon name={name} color={color} size={size} />
-        } 
-      }) }
+        screenOptions={ ({route}) => ({
+          tabBarIcon: ({ color, size }) => {
+            const { name } = icons[route.name];
+            return <Icon name={name} color={'#15054f'} size={25} />
+          } 
+        }) }
       >
-        <Tab.Screen  name="Cadastro" component={Cadastro} />
-        <Tab.Screen  name="Lista" component={Lista} />
+        <Tab.Screen  name="Cadastro" component={Cadastro}  />
+        <Tab.Screen  name="Lista" component={Lista}  />
       </Tab.Navigator>
     </NavigationContainer>
   );

@@ -58,68 +58,86 @@ export default class Cadastro extends Component {
 
     render() {
         return(
-            <NativeBaseProvider >   
+          <NativeBaseProvider  >   
     
-              <Text fontSize={20} color='blue.600' alignSelf="center">Cadastro de Imovéis</Text>
+              <Text fontSize={20} color='blue.600' alignSelf="center" >
+                Cadastro de Imovéis
+                </Text>
 
               <ScrollView margin={3}>
                 
-              <Box flex={4} bg="#ffffff" >
+              <Box flex={2} bg="#fff4d6" >
 
-                <Text fontSize={18}>Endereço:</Text>
-                <TextInput placeholder="Informe o endereço.." onChangeText={ (endereco) => {this.setState({endereco: endereco})}}></TextInput>
-                <Text fontSize={18}>Finalidade (Venda/Aluguel):</Text>
-                <TextInput placeholder="Informe a finalidade (Venda/Aluguel)..." onChangeText={ (finalidade) => {this.setState({finalidade: finalidade})}}></TextInput>
-                <Text fontSize={18}>Tipo (Casa/Apartamento):</Text>
-                <TextInput placeholder="Informe o tipo (Casa/Apartamento)..." onChangeText={ (tipo) => {this.setState({tipo: tipo})}}></TextInput>
-                <Text fontSize={18}>Valor (R$)  :</Text>
-                <TextInput placeholder="Informe o valor (R$)..." onChangeText={ (valor) => {this.setState({valor: valor})}}></TextInput>
+                <Text fontSize={18} color={'blue.900'}>Endereço:</Text>
+                <TextInput 
+                placeholder="Informe o endereço.." 
+                onChangeText={ (endereco) => {this.setState({endereco: endereco})}}>
+                </TextInput>
+                <Text 
+                fontSize={18} color={'blue.900'}>Finalidade (Venda/Aluguel):</Text>
+                <TextInput 
+                placeholder="Informe a finalidade (Venda/Aluguel)..." onChangeText={ (finalidade) => {this.setState({finalidade: finalidade})}}></TextInput>
+                <Text 
+                fontSize={18} color={'blue.900'}>Tipo (Casa/Apartamento):</Text>
+                <TextInput 
+                placeholder="Informe o tipo (Casa/Apartamento)..." onChangeText={ (tipo) => {this.setState({tipo: tipo})}}></TextInput>
+                <Text 
+                fontSize={18} color={'blue.900'}>Valor (R$)  :</Text>
+                <TextInput 
+                placeholder="Informe o valor (R$)..." 
+                onChangeText={ (valor) => {this.setState({valor: valor})}}></TextInput>
 
                 <Text></Text><Text></Text><Text></Text>
 
                 <View style={styles.container}>
-          <RNCamera
-            ref={ref => {
-              this.camera = ref;
-            }}
-            style={styles.preview}
-            type={RNCamera.Constants.Type.back}
-            flashMode={RNCamera.Constants.FlashMode.on}
+            <RNCamera
+                ref={ref => {
+                  this.camera = ref;
+                }}
+                style={styles.preview}
+                type={RNCamera.Constants.Type.back}
+                flashMode={RNCamera.Constants.FlashMode.on}
 
-            // Irá pedir permissão para acessar a câmera, caso não haja
-            androidCameraPermissionOptions={{
-              title: 'Permissão para usar a câmera',
-              message: 'Nós precisamos da sua permissão para usar a câmera',
-              buttonPositive: 'Ok',
-              buttonNegative: 'Cancelar',
-            }}
-            // Irá pedir permissão para acessar o áudio, caso não haja
-            androidRecordAudioPermissionOptions={{
-              title: 'Permissão para usar gravação de áudio',
-              message: 'Precisamos da sua permissão para usar seu áudio',
-              buttonPositive: 'Ok',
-              buttonNegative: 'Cancelar',
-            }}
-          />
-
+                // Irá pedir permissão para acessar a câmera, caso não haja
+                androidCameraPermissionOptions={{
+                  title: 'Permissão para usar a câmera',
+                  message: 'Nós precisamos da sua permissão para usar a câmera',
+                  buttonPositive: 'Ok',
+                  buttonNegative: 'Cancelar',
+                }}
+                // Irá pedir permissão para acessar o áudio, caso não haja
+                androidRecordAudioPermissionOptions={{
+                  title: 'Permissão para usar gravação de áudio',
+                  message: 'Precisamos da sua permissão para usar seu áudio',
+                  buttonPositive: 'Ok',
+                  buttonNegative: 'Cancelar',
+                }}
+              />
 
               <Text></Text>
               <Text></Text>
               <Text></Text>
- 
 
-          <View style={{ flex: 0, flexDirection: 'row', justifyContent: 'center' }} >
-            <TouchableOpacity onPress={this.takePicture.bind(this)} style={styles.capture}>
-              <Text style={{ fontSize: 15, color:'white' }}> Tirar Foto </Text>
-            </TouchableOpacity>
-          </View>
+            <View 
+                style={{ flex: 0, flexDirection: 'row',         justifyContent: 'center' }} >
+                  <TouchableOpacity 
+                  onPress={this.takePicture.bind(this)} 
+                  style={styles.capture}>
+                      <Text 
+                      style={{ fontSize: 15, color:'white' }}> 
+                      Tirar Foto </Text>
+                  </TouchableOpacity>
+            </View>
         </View>
-                <TouchableHighlight style={styles.save} onPress={() => {this.cadastrar(this.state.endereco, this.state.finalidade, this.state.tipo, this.state.valor, this.state.imagem)}}>
-                  <Text style={{ fontSize: 15, color:'black'}}>Cadastrar</Text>
-                </TouchableHighlight>
+            <TouchableHighlight 
+                style={styles.save} 
+                onPress={() => {this.cadastrar(this.state.endereco, this.state.finalidade, this.state.tipo, this.state.valor, this.state.imagem)}}>
+                  <Text 
+                  style={{ fontSize: 15, color:'black'}}>
+                    Cadastrar</Text>
+            </TouchableHighlight>
               </Box>
               </ScrollView>
-              {/* </SafeAreaView> */}
             </NativeBaseProvider>
         )
     }

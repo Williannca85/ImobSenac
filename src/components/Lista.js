@@ -77,7 +77,7 @@ export default class Lista extends Component {
               <Text></Text>
 
                 <ScrollView margin={3}> 
-                <Box flex={4} bg="#ffffff" >
+                <Box flex={2} bg="#fff4d6" >
                   {this.state.imoveis.map(imovel => (
                     <Imoveis key={imovel.id} id={imovel.id} endereco={imovel.endereco} finalidade={imovel.finalidade} tipo={imovel.tipo} valor={imovel.valor} imagem={imovel.imagem} excluir={this.remover}></Imoveis>
                   ))}
